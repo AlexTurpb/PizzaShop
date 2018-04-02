@@ -1,1 +1,17 @@
 <h2>Stub for Products</h2>
+
+<div class="container">
+	<% Product.all.each_slice(3) do |row| %>
+	<div class="row">
+		<% row.each do |pr| %>	
+	    <div class="col-4">
+	    <div class="alert alert-info">
+	    <p>	
+	      Name: <%= pr.title %>
+	    </p>  
+	    </div>  
+	    </div>
+	    <%end%>
+	</div>
+	<%end%>
+</div>
