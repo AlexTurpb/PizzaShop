@@ -20,3 +20,7 @@ end
 get '/products' do
 	erb :products			
 end
+
+get '/item/:id' do
+	erb :item			
+end
