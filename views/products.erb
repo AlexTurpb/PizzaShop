@@ -10,7 +10,7 @@
 	    <div class="alert alert-info">
 	    <p>	
 	      Name: <%= pr.title %>
-	      <button type="button" class="btn btn-success">Add to cart</button><br/>
+	      <button class="btn btn-success" onclick="add_to_cart()">Add to cart</button><br/>
 	      Price: <%= pr.price %><br/><hr/>
       	  <a href="/item/<%=pr.id%>">
 	      <img src="<%= pr.image %>" alt="pizza" height="220" width="310">
