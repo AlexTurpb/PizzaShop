@@ -24,3 +24,7 @@ end
 get '/item/:id' do
 	erb :item			
 end
+
+get '/home' do
+	erb :home
+end
