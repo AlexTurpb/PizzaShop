@@ -28,3 +28,7 @@ end
 get '/home' do
 	erb :home
 end
+
+post '/cart' do
+	erb "Hello its cart"
+end
