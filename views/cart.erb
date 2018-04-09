@@ -1,8 +1,12 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 <h2>Cart</h2>
 </div>
+
+<% order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k]=v.to_i } %>
+<%  %>
+
 <div>
 	<p>
-		<%= params[:orders] %>
+		<%= order %>
 	</p>
 </div>
