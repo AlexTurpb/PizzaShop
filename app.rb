@@ -34,5 +34,7 @@ get '/cart' do
 end
 
 post '/cart' do
+	@order = params[:orders]
+	@error = @order
 	erb :cart
 end
