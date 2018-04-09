@@ -30,6 +30,9 @@ get '/home' do
 end
 
 get '/cart' do
-	erb "Hello its cart"
+	erb :cart
 end
 
+post '/cart' do
+	erb :cart
+end
