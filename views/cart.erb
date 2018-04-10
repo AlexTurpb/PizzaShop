@@ -18,7 +18,7 @@
 		</thead>
 		<tbody>
 			<tr><% order.each_with_index do |(key, value), index|%>
-				<td><% index %></td>
+				<td><%= index + 1 %></td>
 				<td><a href=""><%= Product.find(key[-1].to_i) %></a></td>
 				<td><%= value %></td>
 				<td><%= Product.find(key[-1].to_i).price %></td>
