@@ -2,11 +2,28 @@
 <h2>Cart</h2>
 </div>
 
-<% order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k]=v.to_i } %>
+<% order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i } %>
 <%  %>
 
-<div>
-	<p>
-		<%= order %>
-	</p>
+<div class="container">	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Sum</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><% order.each_with_index do |(key, value), index|%>
+				<td><% index %></td>
+				<td><a href=""><%= Product.find(key[-1].to_i) %></a></td>
+				<td><%= value %></td>
+				<td><%= Product.find(key[-1].to_i).price %></td>
+				<td><%= Product.find(key[-1].to_i).price * value %></td>
+			</tr><%end%>
+		</tbody>	
+	</table>
 </div>
