@@ -28,7 +28,7 @@
 </div>
 		<% total = 0 %>
 		<% order.each do |key, value| %>
-		<% total =+ Product.find(key[-1].to_i).price * value %>
+		<% total += Product.find(key[-1].to_i).price * value %>
 		<% end %>
 <div class="container">
 	<p>		
