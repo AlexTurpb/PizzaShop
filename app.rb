@@ -38,3 +38,11 @@ post '/cart' do
 	@error = @order
 	erb :cart
 end
+
+get '/order' do
+	erb :order
+end
+
+post '/order' do
+	erb :order
+end
