@@ -30,7 +30,7 @@
 		<% order.each do |key, value| %>
 		<% total += Product.find(key[-1].to_i).price * value %>
 		<% end %>
-<div class="container">
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 	<p>		
 		<input id="orders_button"type="submit" name="submit_order" value="Submit Order (<%= total %>)" class="btn btn-info">
 	</p>
