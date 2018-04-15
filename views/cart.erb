@@ -2,7 +2,7 @@
 <h2>Cart</h2>
 </div>
 
-<% order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i } %>
+<% @order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i } %>
 
 <div class="container">	
 	<table class="table table-striped">
@@ -16,7 +16,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr><% order.each_with_index do |(key, value), index|%>
+			<tr><% @order.each_with_index do |(key, value), index|%>
 				<td><%= index + 1 %></td>
 				<td><a href="/item/<%= key[-1] %>"><%= Product.find(key[-1].to_i).title %></a></td>
 				<td><%= value %></td>
@@ -27,13 +27,11 @@
 	</table>
 </div>
 		<% total = 0 %>
-		<% order.each do |key, value| %>
+		<% @order.each do |key, value| %>
 		<% total += Product.find(key[-1].to_i).price * value %>
 		<% end %>
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 	<form action="/order" method="POST">
-		
-		<input type="text" name="orders" value="<%= order %>">		
 		<input type="submit" name="submit_order_btn" value="Submit Order (<%= total %>)" class="btn btn-info">
 	</form>
 </div>
