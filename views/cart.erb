@@ -4,7 +4,8 @@
 
 <% @order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i } %>
 
-<div class="container">	
+<div class="container">
+<div class="alert alert-warning">	
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -25,6 +26,7 @@
 			</tr><%end%>
 		</tbody>	
 	</table>
+</div>	
 </div>
 		<% total = 0 %>
 		<% @order.each do |key, value| %>
