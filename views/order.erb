@@ -7,6 +7,25 @@
 	<p><%= params[:cart].inspect %></p>
 </div>
 
+<div class="container">
+	<p>
+	<form action="/new" method="POST">
+		<div class="form-group">
+			<input name="order[user]" type="text" class="form-control" placeholder="Your name:" value="">
+		</div>
+		<div class="form-group">
+			<input name="order[phone]" type="text" class="form-control" placeholder="Your phone:" value="">
+		</div>
+		<div class="form-group">
+			<textarea name="order[adress]" rows="9" class="form-control" placeholder="Type adress here:"></textarea>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Add post</button>
+		</div>
+	</form>
+	</p>
+</div>
+
 <script type="text/javascript">
 
 $(function() {
