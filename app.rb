@@ -46,5 +46,6 @@ get '/orders' do
 end
 
 post '/orders' do
+	@order_to_db = OrderSubmit.new params[:order]
 	erb :orders
 end

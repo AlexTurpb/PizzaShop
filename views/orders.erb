@@ -4,8 +4,11 @@
 
 
 <div class="container">
-	<p><%= params[:cart].to_s.class %></p>
-</div>
+	<%order = params[:cart][:ready_order]%>
+	<%= order.inspect %>
+</div>	
+	
+
 
 <div class="container">
 	<p>
@@ -20,7 +23,7 @@
 			<textarea name="order[adress]" rows="9" class="form-control" placeholder="Type adress here:"></textarea>
 		</div>
 		<div class="form-group">
-			<input name="order[ordered_products]" type="hidden" class="form-control" value="<% params[:cart].to_s %>">
+			<input name="order[ordered_products]" type="text" class="form-control" value="<%= order %>">
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Purchase</button>
