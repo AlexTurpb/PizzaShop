@@ -10,6 +10,10 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
+	# validates :client, presence: true, length: { in: 4..20 }
+	# validates :phone, presence: true, length: { in: 4..20 }
+	# validates :client, presence: true, length: { in: 4..20 }
+	# validates :phone, presence: true, length: { in: 4..20 }
 end
 
 get '/' do
