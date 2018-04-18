@@ -9,11 +9,7 @@ set :database, "sqlite3:pizzashop.db"
 class Product < ActiveRecord::Base
 end
 
-class Order < ActiveRecord::Base
-	# validates :client, presence: true, length: { in: 4..20 }
-	# validates :phone, presence: true, length: { in: 4..20 }
-	# validates :client, presence: true, length: { in: 4..20 }
-	# validates :phone, presence: true, length: { in: 4..20 }
+class OrderSubmit < ActiveRecord::Base
 end
 
 get '/' do
@@ -45,10 +41,10 @@ post '/cart' do
 	erb :cart
 end
 
-get '/order' do
-	erb :order
+get '/orders' do
+	erb :orders
 end
 
-post '/order' do
-	erb :order
+post '/orders' do
+	erb :orders
 end
