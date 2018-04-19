@@ -9,7 +9,7 @@ set :database, "sqlite3:pizzashop.db"
 class Product < ActiveRecord::Base
 end
 
-class OrderSubmit < ActiveRecord::Base
+class Ordersubmit < ActiveRecord::Base
 end
 
 get '/' do
@@ -46,6 +46,7 @@ get '/orders' do
 end
 
 post '/orders' do
-	@order_to_db = OrderSubmit.new params[:order]
+	@order_to_db = Ordersubmit.new params[:order]
+	@order_to_db.save
 	erb :orders
 end

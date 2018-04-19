@@ -1,6 +1,6 @@
-class CreateOrders < ActiveRecord::Migration[5.2]
+class CreateOrdersubmits < ActiveRecord::Migration[5.2]
   def change
-  	create_table :orders do |t|
+  	create_table :ordersubmits do |t|
   		t.string :client
   		t.string :phone
   		t.string :adress

@@ -2,13 +2,11 @@
 <h2>Order</h2>
 </div>
 
-
 <div class="container">
-	<%order = params[:cart][:ready_order]%>
-	<%= order.inspect %>
-</div>	
-	
-
+	<p>
+		<%= params[:cart] %>
+	</p>
+</div>
 
 <div class="container">
 	<p>
@@ -23,7 +21,7 @@
 			<textarea name="order[adress]" rows="9" class="form-control" placeholder="Type adress here:"></textarea>
 		</div>
 		<div class="form-group">
-			<input name="order[ordered_products]" type="text" class="form-control" value="<%= order %>">
+			<input name="order[ordered_products]" type="text" class="form-control" value="<%= params[:cart]	%>">
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Purchase</button>
