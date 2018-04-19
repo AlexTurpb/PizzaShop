@@ -10,6 +10,9 @@ class Product < ActiveRecord::Base
 end
 
 class Ordersubmit < ActiveRecord::Base
+	validates :client, presence: true, length: { in: 4..20 }
+	validates :phone, presence: true, length: { in: 7..20 }
+	validates :adress, presence: true, length: { in: 7..20 }
 end
 
 get '/' do
@@ -47,6 +50,11 @@ end
 
 post '/orders' do
 	@order_to_db = Ordersubmit.new params[:order]
-	@order_to_db.save
-	erb :orders
+	if @order_to_db.save
+		@info = 'Purchase done'
+		erb :orders
+	else
+		@error = @order_to_db.errors.full_messages.first
+		erb :orders
+	end
 end
