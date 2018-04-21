@@ -40,7 +40,8 @@ get '/cart' do
 end
 
 post '/cart' do
-	@order = params[:orders].delete('product_').split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i }
+	order_line = params[:orders]
+	@order = parse_orders_line order_line
 	erb :cart
 end
 
@@ -57,4 +58,8 @@ post '/orders' do
 		@error = @order_to_db.errors.full_messages.first
 		erb :orders
 	end
+end
+
+def parse_orders_line order_line
+	order_line.delete('product_').split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i }
 end
