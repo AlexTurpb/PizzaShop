@@ -3,6 +3,12 @@
 </div>
 
 <div class="container">
+	<p>
+		<%= @order.inspect %>
+	</p>
+</div>
+
+<div class="container">
 <div class="alert alert-warning">	
 	<table class="table table-striped">
 		<thead>
@@ -17,10 +23,10 @@
 		<tbody>
 			<tr><% @order.each_with_index do |(key, value), index|%>
 				<td><%= index + 1 %></td>
-				<td><a href="/item/<%= key[-1] %>"><%= Product.find(key[-1].to_i).title %></a></td>
+				<td><a href="/item/<%= key %>"><%= Product.find(key).title %></a></td>
 				<td><%= value %></td>
-				<td><%= Product.find(key[-1].to_i).price %></td>
-				<td><%= Product.find(key[-1].to_i).price * value %></td>
+				<td><%= Product.find(key).price %></td>
+				<td><%= Product.find(key).price * value %></td>
 			</tr><%end%>
 		</tbody>	
 	</table>
@@ -28,7 +34,7 @@
 </div>
 		<% total = 0 %>
 		<% @order.each do |key, value| %>
-		<% total += Product.find(key[-1].to_i).price * value %>
+		<% total += Product.find(key).price * value %>
 		<% end %>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -37,3 +43,5 @@
 		<input type="submit" name="submit_order_btn" value="Submit Order (<%= total %>)" class="btn btn-info">
 	</form>
 </div>
+
+

@@ -40,7 +40,7 @@ get '/cart' do
 end
 
 post '/cart' do
-	@order = params[:orders].split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i }
+	@order = params[:orders].delete('product_').split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i }
 	erb :cart
 end
 
