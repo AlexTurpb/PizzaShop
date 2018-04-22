@@ -61,5 +61,5 @@ post '/orders' do
 end
 
 def parse_orders_line order_line
-	order_line.delete('product_').split(/,|=/).each_slice(2).with_object({}) { |(k,v),h| h[k] = v.to_i }
+	order_line.delete('product_').split(/,|=/).each_slice(2).with_object([]) {|i, a| a << i }
 end
