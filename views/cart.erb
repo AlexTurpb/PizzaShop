@@ -7,10 +7,27 @@
 
 
 <div class="container">
-	<p>
-		<% @items.each do |item| %>
-		<% item = Product.find(item[0]) %>
-		<%= item %>
-		<%end%>
-	</p>
+<div class="alert alert-warning">	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Sum</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><% @items.each_with_index do |item, index|%>
+				<% item[0] = Product.find(item[0]) %>
+				<td><%= index + 1 %></td>
+				<td><a href="/item/<%= item[0].id %>"><%= item[0].title %></a></td>
+				<td><%= item[1] %></td>
+				<td><%= item[0].price %></td>
+				<td><%= item[0].price * item[1].to_i %></td>
+			</tr><%end%>
+		</tbody>	
+	</table>
+</div>	
 </div>
