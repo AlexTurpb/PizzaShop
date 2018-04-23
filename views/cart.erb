@@ -2,10 +2,15 @@
 <h2>Cart</h2>
 </div>
 
+
+		<%= @items.inspect %>
+
+
 <div class="container">
 	<p>
-		<%= @order.inspect %>
+		<% @items.each do |item| %>
+		<% item = Product.find(item[0]) %>
+		<%= item %>
+		<%end%>
 	</p>
 </div>
-
-
