@@ -31,3 +31,14 @@
 	</table>
 </div>	
 </div>
+		<% total = 0 %>
+		<% @items.each do |item| %>
+		<% total += item[0].price * item[1] %>
+		<% end %>
+		
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+	<form action="/orders" method="GET">
+		<input type="hidden" name="cart" value="<%= params[:orders] %>">
+		<input type="submit" name="submit_order_btn" value="Submit Order (<%= total %>)" class="btn btn-info">
+	</form>
+</div>				
