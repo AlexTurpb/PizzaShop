@@ -66,7 +66,7 @@ post '/orders' do
 end
 
 get '/orders/view' do
-	erb "orders view"
+	erb :orders_view
 end
 
 
