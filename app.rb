@@ -65,6 +65,12 @@ post '/orders' do
 	end
 end
 
+get '/orders/view' do
+	erb "orders view"
+end
+
+
+
 def parse_orders_line order_line
 	order_line.delete('product_').split(/,|=/).each_slice(2).with_object([]) {|i, a| a << i }
 end
