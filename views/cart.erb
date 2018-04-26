@@ -2,40 +2,42 @@
 <h2>Cart</h2>
 </div>
 
-<div class="container">
-<div class="alert alert-warning">	
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>No.</th>
-				<th>Name</th>
-				<th>Quantity</th>
-				<th>Price</th>
-				<th>Sum</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr><% @items.each_with_index do |item, index|%>
-				<% item[0] = Product.find(item[0]) %>
-				<td><%= index + 1 %></td>
-				<td><a href="/item/<%= item[0].id %>"><%= item[0].title %></a></td>
-				<td><%= item[1] %></td>
-				<td><%= item[0].price %></td>
-				<td><%= item[0].price * item[1].to_i %></td>
-			</tr><%end%>
-		</tbody>	
-	</table>
-</div>	
-</div>
-		<% total = 0 %>
-		<% @items.each do |item| %>
-		<% total += item[0].price * item[1].to_i %>
-		<% end %>
+<div id='cart'>
+	<div class="container">
+	<div class="alert alert-warning">	
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Sum</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><% @items.each_with_index do |item, index|%>
+					<% item[0] = Product.find(item[0]) %>
+					<td><%= index + 1 %></td>
+					<td><a href="/item/<%= item[0].id %>"><%= item[0].title %></a></td>
+					<td><%= item[1] %></td>
+					<td><%= item[0].price %></td>
+					<td><%= item[0].price * item[1].to_i %></td>
+				</tr><%end%>
+			</tbody>	
+		</table>
+	</div>	
+	</div>
+			<% total = 0 %>
+			<% @items.each do |item| %>
+			<% total += item[0].price * item[1].to_i %>
+			<% end %>
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-	<form action="/orders" method="GET">
-		<input type="hidden" name="cart" value="<%= params[:orders] %>">
-		<input type="submit" class="btn btn-success"name="submit_order_btn" value="Submit Order (<%= total %>)">
-		<button type="button" onclick="return cancel_order()"class="btn btn-danger">Cancel</button>
-	</form>
+	<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+		<form action="/orders" method="GET">
+			<input type="hidden" name="cart" value="<%= params[:orders] %>">
+			<input type="submit" class="btn btn-success"name="submit_order_btn" value="Submit Order (<%= total %>)">
+			<button type="button" onclick="return cancel_order()"class="btn btn-danger">Cancel</button>
+		</form>
+	</div>
 </div>				
