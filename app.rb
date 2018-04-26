@@ -57,8 +57,7 @@ end
 post '/orders' do
 	@order_to_db = Ordersubmit.new params[:order]
 	if @order_to_db.save
-		@info = 'Purchase done'
-		erb :orders
+		erb :orders_placed
 	else
 		@error = @order_to_db.errors.full_messages.first
 		erb :orders
@@ -69,6 +68,8 @@ get '/orders/view' do
 	erb :orders_view
 end
 
+post '/orders_placed' do
+end
 
 
 def parse_orders_line order_line
