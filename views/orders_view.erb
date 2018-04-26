@@ -14,7 +14,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr><% Ordersubmit.all.each_with_index do |order, index|%>
+			<tr><% Ordersubmit.all.reverse.each_with_index do |order, index|%>
 				<td><%= index + 1 %></td>
 				<td><%= order.client %></td>
 				<td><%= order.phone %></td>
