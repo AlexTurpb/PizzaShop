@@ -67,5 +67,12 @@ function cart_get_orders()
 	return orders;
 }
 
+function cancel_order()
+{
+	alert(aaa);
+	return false;
+}
+
+
 // Object.keys(localStorage).forEach(key => sum+=((localStorage[key])*1));
 // 	window.alert(sum);
