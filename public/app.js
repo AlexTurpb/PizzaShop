@@ -1,11 +1,3 @@
-function something()
-{
-	var x = window.localStorage.getItem('bbb');
-	x = x * 1 + 1;
-	window.localStorage.setItem('bbb', x);
-	alert(x);
-}
-
 function add_to_cart(id)
 {
 	// var sum = 0;
@@ -73,7 +65,7 @@ function cancel_order()
 	update_orders_input();
 	update_orders_button();
 
-	$('#cart').text('Your cart is now empty')
+	$('#cart').text('Your cart is now empty');
 
 	return false;
 }
